@@ -30,10 +30,15 @@ def echo(message):
     chat_id = message.chat.id
     msg = message.text
     randCurseORblessing = rd.randint(0,59)
+   
     if msg == "نفرین":
         bot.send_message(chat_id, curses_list[randCurseORblessing])
     elif msg == "سعادت":
         bot.send_message(chat_id, blessings.blessings_list[randCurseORblessing])
+    elif msg == "رندوم":
+        randChoiceId = rd.randint(0,1)
+        randomChoices = ["سعادت", "نفرین"]
+        bot.send_message(chat_id, randomChoices[randChoiceId])
 
 
 
