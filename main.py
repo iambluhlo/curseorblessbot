@@ -3,10 +3,10 @@ import telebot
 from telebot import types
 import random as rd
 import curses 
+import blessings
 
 
 bot = telebot.TeleBot(API_KEY.API_TOKEN, parse_mode=None)
-
 
 
 curses_list = [line.strip() for line in curses.curses_raw.splitlines() if line.strip()]
@@ -23,19 +23,17 @@ def send_welcome(message):
     chat_id = message.chat.id
     bot.reply_to(message, "Hello", reply_markup=markup)
     return chat_id
-      
-
-
-
 	
     
 @bot.message_handler(func=lambda message: True)
 def echo(message):
     chat_id = message.chat.id
     msg = message.text
-    if msg == "سعادت":
-        user_curse = rd.randint(0,59)
-        bot.send_message(chat_id, curses_list[user_curse])
+    randCurseORblessing = rd.randint(0,59)
+    if msg == "نفرین":
+        bot.send_message(chat_id, curses_list[randCurseORblessing])
+    elif msg == "سعادت":
+        bot.send_message(chat_id, blessings.blessings_list[randCurseORblessing])
 
 
 
