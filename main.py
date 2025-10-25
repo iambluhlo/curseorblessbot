@@ -36,7 +36,6 @@ def echo(message):
     if msg == "سعادت":
         user_curse = rd.randint(0,59)
         bot.send_message(chat_id, curses_list[user_curse])
-        bot.send_message(chat_id, user_curse)
 
 
 
